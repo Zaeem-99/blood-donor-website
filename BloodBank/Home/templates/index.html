@@ -1,0 +1,593 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donor Finder</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'theme.css' %}">
+    <link rel="stylesheet" href="{% static 'bhai.css' %}">
+</head>
+  <body>
+    <header>
+        <h1>Welcome to Blood Donor and Blood Bank Finder</h1>
+        <nav>
+            <a href="{% url 'main-page' %}">Home</a>
+            <a href="{% url 'register-p' %}">Become a Donor</a>
+            <a href="{% url 'search-page' %}">Find a Donor</a>
+            <a href="{% url 'contact-page' %}">Contact Us</a>
+            <a href="{% url 'about-page' %}">About Us Us</a>
+        </nav>
+    </header>
+
+  
+    <div class="theme-switch-wrapper">
+        <span class="theme-switch-label">Theme</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <script>
+        // Get the toggle switch element
+        const toggleSwitch = document.getElementById('theme-toggle');
+
+        // Add event listener to toggle theme
+        toggleSwitch.addEventListener('change', function () {
+            if (this.checked) {
+                document.body.classList.add('light-mode'); // Switch to light mode
+            } else {
+                document.body.classList.remove('light-mode'); // Switch back to dark mode
+            }
+        });
+    </script>
+
+    <div class="logo-clock-container">
+        <div class="logo">
+            <span class="digit">24</span>x<span class="digit">7</span>
+        </div>
+        <div id="clock" class="clock"></div>
+    </div>
+    
+    <div id="chul">
+    <section class="cards-section">
+        <div class="cardo">
+            <img src="{% static 'images/ok1.webp' %}" alt="Donor Image"style="height:50%"style="max-width:50%">
+            <h1>Why Donate Blood?</h1>
+            <p>Blood donation is essential to save lives in hospitals and emergency situations.</p>
+        </div>
+        <div class="cardo">
+            <img src="{% static 'images/process of blood donate.jfif' %}" alt="Donation Process"style="height:30%"style="max-width:70%">
+            <h1>The Donation Process</h1>
+            <p>Each donation can save multiple lives.
+                If you're donating whole blood, we'll cleanse an area on your arm and insert a brand new sterile needle for the blood draw.
+                (This feels like a quick pinch and is over in seconds.) Other types of donations, such as platelets, are made using an apheresis machine
+                which will be connected to both arms.
+            </p>
+            </div>
+            <div class="cardo">
+                <img src="{% static 'images/types of blood.webp' %}" alt="Blood Types"style="height:70%"style="max-width:30%">
+            <h1>Understanding Blood Types</h1>
+            <p>Discover how your blood type affects who you can donate to and receive from.
+                
+            </p>
+        </div>
+    </section>
+    </div>
+    
+     <section class="campaign-container">
+        <!-- Donation Campaign Image -->
+        <div class="campaign-details">
+            <img src="{% static 'images/bp1.jpg' %}" alt="Donation Campaign">
+        </div>
+
+        <!-- Campaign Information -->
+        <div class="campaign-info">
+            <h2>World Blood Donors Day</h2>
+            <p>Every year, on 14 June, countries around the world celebrate World Blood Donor Day to raise awareness of the need for safe blood and blood products and to thank blood donors for their life-saving gifts of blood.</p>
+            <div class="register-box">
+                <h3>Register today</h3>
+                <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                    <!-- <input name="donor_name"  type="text" placeholder="Your name" >
+                    <input name="donor_email" type="email" placeholder="Email"> -->
+                    {{ form.as_table }}
+                    
+                    <button type="submit">Make an Appointment</button>
+                </form>
+            </div>
+            <div class="details-info">
+                <p><strong>Location:</strong> Armiet Shahapur sapgaon</p>
+                <p><strong>Date:</strong> 14 June 2019</p>
+                <p><strong>Time:</strong> 9:00 am - 8:00 pm</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="shero">
+        <h2>Our Specialities and How You will be benifited with us</h2>
+        <p>These 3 Specialities Makes The Difference.</p>
+        <a href="{% url 'register-p' %}"><button class="glow-button">Join Now</button></a>
+    </section>
+
+   <div class="photo-container">
+  
+        <div class="photo">
+            <h1 class=arrow> ↓ </h1>
+            <img src="{% static 'images/LOCATION.png' %}" alt="Photo 1">
+            <h1>1.Get notification when donor is of your <br>same blood group</h1>
+        </div>
+      
+        <div class="photo">
+           <h1 class="arrow"> ↓ </h1>
+           <img src="{% static 'images/Urgently.png' %}" alt="Photo 1">
+           <h1>2.Receive Blood of  your Same Blood Group <br>urgently</h1>
+        </div>
+
+      
+        <div class="photo">
+            <h1 class=arrow> ↓ </h1>
+            <img src="{% static 'images/Need.png' %}" alt="Photo 1">
+            <h1>3.Notifying Donors: The closest matching donor<br> will be notified via email.</h1>
+        </div>
+    </div>
+
+    <section class="hero">
+        <h2>Save Lives by Donating Blood</h2>
+        <p>Join our community of blood donors and help save lives.</p>
+        <a href="{% url 'register-p' %}"><button type="submit" class="glow-button">Become a Donor</button></a>
+        
+    </section>
+
+
+     <style>
+            /* Cards Section */
+            .cards-section {
+                display: flex;
+                justify-content: space-around;
+                margin: 50px 20px;
+            }
+             #chul p:hover
+            {
+              color: rgb(245, 11, 11);
+             cursor:zoom-in;
+            }
+            .cardo {
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                text-align: center;
+                width: 300px;
+                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            }
+    
+            .cardo:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            }
+    
+            .cardo img {
+                max-width: 100%;
+                border-radius: 10px;
+            }
+    
+            .cardo h1 {
+                color: #e53935;
+                font-size: 30px;
+                margin: 10px 0;
+            }
+    
+            .cardo p {
+                font-size: 20px;
+                color: #222222;
+            }
+    </style>
+
+        
+<section class="card-container">
+        <div class="card">
+            <img src="{% static 'images/blod donate.jpg' %}" alt="Blood donation" style="height:50%">
+            <div class="card-content">
+                <h3 class="card-title">Blood Donor finding becomes easy</h3>
+                <p class="card-description">Join our upcoming blood donation camp and make a difference.</p>
+                <a href="{% url 'about-page' %}" class="card-action">Learn More</a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="{% static 'images/find blood.jpg' %}" alt="2" style="height:50%">
+            <div class="card-content">
+                <h3 class="card-title">Find a Donor Immediately!!</h3>
+                <p class="card-description">Search our database to find a blood donor near you.</p>
+                <a href="{% url 'search-page' %}" class="card-action">Search Now</a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="{% static 'images/save lives.png' %}" alt="3"style="height:50%">
+            <div class="card-content">
+                <h3 class="card-title">Save lives and become a Donor</h3>
+                <p class="card-description">Sign up to become a blood donor and save lives.</p>
+                <a href="{% url 'register-p' %}" class="card-action">Register</a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="{% static 'images/purpose.png' %}" alt="4"style="height:45%">
+            <div class="card-content">
+                <h3 class="card-title">Purpose Of Creating Blood Donor And Finder</h3>
+                <p class="card-description">Learn more about our mission and the impact of blood donation.</p>
+                <a href="{% url 'about-page' %}" class="card-action">Read More</a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="{% static 'images/help us.jpg' %}" alt="5"style="height:50%">
+            <div class="card-content">
+                <h3 class="card-title">Help us Saving lives by contributing in Our  project</h3>
+                <p class="card-description">Get in touch with us for any queries or support.</p>
+                <a href="{% url 'contact-page' %}" class="card-action">Contact</a>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <img src="{% static 'images/bld1.jpg' %}" alt="3"style="height:60%">
+            <div class="card-content">
+                <h3 class="card-title">Donors in your Area</h3>
+                <p class="card-description">Sign up to become a blood donor and save lives.</p>
+                <a href="{% url 'search-page' %}" class="card-action">See Donors</a>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <img src="{% static 'images/bld 2.webp' %}" alt="3"style="height:60%">
+            <div class="card-content">
+                <h3 class="card-title">lives Saved Till Now</h3>
+                <p class="card-description">Sign up to become a blood donor and save lives.</p>
+                <a href="{% url 'register-p' %}" class="card-action">Explore</a>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <img src="{% static 'images/bld 3.webp' %}" alt="3"style="height:55%">
+            <div class="card-content">
+                <h3 class="card-title">Discover Various Type Blood Groups</h3>
+                <p class="card-description">Sign up to become a blood donor and save lives.</p>
+                <a href="{% url 'register-p' %}" class="card-action">Discover</a>
+            </div>
+        </div>
+</section>
+
+
+    <section class="kero">
+        <h2>Everything we did till now in a slideshow</h2>
+        <p>see our Journey and Acheivements Below  ↓</p>
+        <section id=home><a href="{% url 'register-p' %}"> <button onclick="scrollToSection('register')">Register Now</button></a></section>
+    </section>
+
+     <div class="me">
+    <div class="wrapper">
+      <input type="radio" name="slide" id="one" checked>
+      <input type="radio" name="slide" id="two">
+      <input type="radio" name="slide" id="three">
+      <input type="radio" name="slide" id="four">
+      <input type="radio" name="slide" id="five">
+      
+      <div class="img img-1">
+        <img src="{% static 'images/ok1.webp' %}" alt="">
+        <a href="#" class="button">Kind Now</a>
+      </div>
+      
+      <div class="img img-2">
+        <img src="{% static 'images/ok2.jpg' %}" alt="">
+        <a href="#" class="button">Find Now</a>
+      </div>
+      
+      <div class="img img-3">
+        <img src="{% static 'images/ok3.jpg' %}" alt="">
+        <a href="#" class="button">Bind Now</a>
+      </div>
+      
+      <div class="img img-4">
+        <img src="{% static 'images/ok4.jpg' %}" alt="">
+        <a href="#" class="button">Mind Now</a>
+      </div>
+      
+      <div class="img img-5">
+        <img src="{% static 'images/ok2.jpg' %}" alt="">
+        <a href="#" class="button">Grind Now</a>
+      </div>
+  
+      <div class="sliders">
+        <label for="one" class="one"></label>
+        <label for="two" class="two"></label>
+        <label for="three" class="three"></label>
+        <label for="four" class="four"></label>
+        <label for="five" class="five"></label>
+      </div>
+
+      <!-- Navigation buttons -->
+      <span class="navigation-btn left" onclick="navigateSlides('left')">&lt;</span>
+      <span class="navigation-btn right" onclick="navigateSlides('right')">&gt;</span>
+    </div>
+    </div>
+    <style>
+  .me{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .me {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: -webkit-linear-gradient(136deg, rgb(204, 157, 248) 0%, rgb(221, 15, 15) 100%);
+  }
+  .wrapper {
+    position: relative;
+    width: 800px; /* Medium-sized carousel */
+    height: 800px;
+    border-radius: 30px; /* Rounded borders for the entire wrapper */
+    overflow: hidden;
+  }
+  .wrapper .img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .wrapper .img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px; /* Rounded borders for images */
+    clip-path: circle(0% at 0% 100%);
+    transition: all 0.7s;
+  }
+  #one:checked ~ .img-1 img {
+    clip-path: circle(150% at 0% 100%);
+  }
+  #two:checked ~ .img-1 img,
+  #two:checked ~ .img-2 img {
+    clip-path: circle(150% at 0% 100%);
+  }
+  #three:checked ~ .img-1 img,
+  #three:checked ~ .img-2 img,
+  #three:checked ~ .img-3 img {
+    clip-path: circle(150% at 0% 100%);
+  }
+  #four:checked ~ .img-1 img,
+  #four:checked ~ .img-2 img,
+  #four:checked ~ .img-3 img,
+  #four:checked ~ .img-4 img {
+    clip-path: circle(150% at 0% 100%);
+  }
+  #five:checked ~ .img-1 img,
+  #five:checked ~ .img-2 img,
+  #five:checked ~ .img-3 img,
+  #five:checked ~ .img-4 img,
+  #five:checked ~ .img-5 img {
+    clip-path: circle(150% at 0% 100%);
+  }
+  .wrapper .sliders {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    display: flex;
+  }
+  .wrapper .sliders label {
+    border: 2px solid rgb(142, 197, 252);
+    width: 13px;
+    height: 13px;
+    margin: 0 3px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  #one:checked ~ .sliders label.one,
+  #two:checked ~ .sliders label.two,
+  #three:checked ~ .sliders label.three,
+  #four:checked ~ .sliders label.four,
+  #five:checked ~ .sliders label.five {
+    width: 35px;
+    border-radius: 14px;
+    background: rgb(238, 10, 10);
+  }
+  .sliders label:hover {
+    background: rgb(231, 6, 6);
+  }
+  input[type="radio"] {
+    display: none;
+  }
+/* Updated button styles */
+a.button {
+    display: none; /* Hidden by default */
+    padding: 12px 30px;
+    border-radius: 45px;
+    color: #000000;
+    background: rgba(17, 136, 233, 0.8);
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    position: absolute;
+    bottom: 40px; /* Slightly higher */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  
+  #one:checked ~ .img-1 a.button {
+    display: inline-block;
+  }
+  #two:checked ~ .img-2 a.button {
+    display: inline-block;
+  }
+  #three:checked ~ .img-3 a.button {
+    display: inline-block;
+  }
+  #four:checked ~ .img-4 a.button {
+    display: inline-block;
+  }
+  #five:checked ~ .img-5 a.button {
+    display: inline-block;
+  }
+  
+  /* Entire button hover effect */
+  a.button:hover {
+    background-color: rgba(231, 5, 5, 0.9); /* Light red on hover */
+    color: #fff; /* Keep the text white */
+  }
+  
+  /* Navigation buttons */
+  .navigation-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 20px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    cursor: pointer;
+    font-size: 32px;
+    z-index: 10;
+    transition: all 0.3s;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+  }
+  .navigation-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    border-color: rgba(63, 2, 2, 0.9);
+  }
+  .navigation-btn.left {
+    left: 10px;
+  }
+  .navigation-btn.right {
+    right: 10px;
+  }
+  </style>
+
+    <script>
+      function navigateSlides(direction) {
+        const slides = document.getElementsByName('slide');
+        let currentIndex = 0;
+        slides.forEach((slide, index) => {
+          if (slide.checked) {
+            currentIndex = index;
+          }
+        });
+
+        if (direction === 'left') {
+          slides[currentIndex === 0 ? slides.length - 1 : currentIndex - 1].checked = true;
+        } else {
+          slides[currentIndex === slides.length - 1 ? 0 : currentIndex + 1].checked = true;
+        }
+      }
+    </script>
+
+     <section class="ways-to-help">
+        <h2>Ways to Help</h2>
+        <div class="help-container">
+            <!-- Donate Blood Card -->
+            <div class="help-card">
+                <img src="{% static 'images/p1.jpg' %}" alt="Donate Blood">
+                <div class="help-card-content">
+                    <h3>Donate Blood</h3>
+                    <p>Donate blood today. Help save lives.</p>
+                    <a href="{% url 'about-page' %}">Learn more</a>
+                </div>
+            </div>
+
+            <!-- Volunteer Team Card -->
+            <div class="help-card">
+                <img src="{% static 'images/bld1.jpg' %}" alt="Volunteer Team">
+                <div class="help-card-content">
+                    <h3>Volunteer Team</h3>
+                    <p>We are always looking for your help.</p>
+                    <a href="{% url 'register-p' %}">Become a Volunteer</a>
+                </div>
+            </div>
+
+            <!-- Donate Money Card -->
+            <div class="help-card">
+                <img src="{% static 'images/p2.avif' %}" alt="Donate Money">
+                <div class="help-card-content">
+                    <h3>Donate Money</h3>
+                    <p>Your financial gift can help people who need it most.</p>
+                    <a href="{% url 'register-p' %}">Donate now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="info-container">
+         <div class="info-item">
+            <i class="fa fa-phone"></i> <!-- Phone Icon -->
+            <p>+91 XXXXX 93945<br><a href="mailto:info@demolink.org">armiet@gmail.com</a></p>
+         </div>
+         <div class="info-item">
+            <i class="fa fa-map-marker"></i> <!-- Location Icon -->
+            <p>Created in <br>Armiet Shahapur</p>
+         </div>
+         <div class="info-item">
+            <i class="fa fa-clock-o"></i> <!-- Clock Icon -->
+            <p>9:00 - 18:00<br>Monday - Friday</p>
+         </div>
+    </div>
+    <footer>
+        <section>    
+            <div id="containerFooter">
+                
+                <div id="webFooter">
+                    <h3> Blood groups Available </h3>
+                    <p> B+/B-  </p>
+                    <p> O+/O-  </p>
+                    <p> AB+/AB-</p>
+                    <p> Golden Blood</p>
+                </div>
+
+                
+                <div id="webFooter">
+                    <h2> HELPERS </h2>
+                    <p> Singh Amit </p>
+                    <p> Ghadse Hitesh</p>
+                    <p>Khan Kamil</p>
+                    <p> Saniddha Sir </p>
+                </div>
+
+                <div id="webFooter">
+                    <h3> links </h3>
+                    <a href="{% url 'main-page' %}"><p>Home</p></a>
+                    <a href="{% url 'about-page' %}"><p>About Us</p></a>
+                    <a href="{% url 'contact-page' %}"><p>Contact Us</p></a>
+                </div>
+            </div>
+            <div id="credit"><a href="https://github.com/codewithmohad"> © MOHAD SHAIKH </div>
+        </section>
+ <script>
+        function updateClock() {
+            const clockElement = document.getElementById('clock');
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateClock, 1000); // Update the clock every second
+        updateClock(); // Initial call to display clock immediately
+
+
+ </script>
+
+</body>
+</html>

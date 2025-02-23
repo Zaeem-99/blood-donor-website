@@ -1,0 +1,345 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    color: #ee2400;
+    border: #000000 ;
+    border-radius: 5px;
+    font-size: larger;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #c90505;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header Styling */
+ header {
+    background: linear-gradient(135deg, #c0392b, #e74c3c);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeInDown 1s ease-in-out;
+}
+
+header h1 {
+    font-size: large;
+    color: #f1eeee;
+    font-weight: bold;
+    text-shadow: #000000;
+    border: thick;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    animation: textSlideIn 1s ease-in-out forwards;
+}
+
+@keyframes textSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 
+/* Header Text Animation */
+.text-animation {
+    animation: textGlow 1.5s infinite alternate;
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1.2);
+    }
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    animation: navFadeIn 1.5s ease-in-out;
+}
+
+@keyframes navFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+nav ul li {
+    margin: 0 20px;
+    position: relative;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    padding-bottom: 5px;
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #f39c12;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover {
+    color: #f39c12;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+section#home {
+    background: url('https://source.unsplash.com/1600x900/?blood-donation') no-repeat center center/cover;
+    color: #fff;
+    padding: 120px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+section#home h2 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    animation: zoomIn 1s ease-in-out forwards;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+section#home p {
+    font-size: 1.7rem;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section#home button {
+    padding: 15px 30px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+    animation: bounceIn 2s ease-in-out infinite alternate;
+}
+
+@keyframes bounceIn {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+section#home button:hover {
+    background-color: #c0392b;
+    transform: translateY(-5px);
+}
+
+/* About Section */
+section#about {
+    background: #fdfdfd;
+    padding: 80px 20px;
+    text-align: center;
+    animation: slideInLeft 1.5s ease-in-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+section#about h2 {
+    font-size: 3rem;
+    color: #c0392b;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+section#about h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 5px;
+    background: #e74c3c;
+    margin: 20px auto;
+    animation: slideInRight 0.7s ease-in-out;
+}
+
+@keyframes slideInRight {
+    from {
+        width: 0;
+    }
+    to {
+        width: 50px;
+    }
+}
+
+section#about p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+    color: #555;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+/* Registration Section */
+section#register {
+    background: linear-gradient(135deg, #f39c12, #f1c40f);
+    padding: 80px 20px;
+    text-align: center;
+    animation: slideInRight 1.5s ease-in-out;
+}
+
+section#register h2 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+section#register form {
+    background: #fff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: 0 auto;
+    animation: fadeIn 2s ease-in-out;
+}
+
+section#register form label {
+    display: block;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: left;
+}
+
+section#register form input,
+section#register form select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: border-color 0.3s ease;
+}
+
+section#register form input:focus,
+section#register form select:focus {
+    border-color: #e74c3c;
+    outline: none;
+}
+
+section#register form button {
+    padding: 15px 30px;
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+}
+
+section#register form button:hover {
+    background-color: #229954;
+    transform: translateY(-3px);
+}
+
+/* Contact Section */
+section#contact {
+    background: #f7f7f7;
+    padding: 60px 20px;
+    text-align: center;
+    animation: slideInLeft 1.5s ease-in-out;
+}
+
+section#contact h2 {
+    font-size: 3rem;
+    color: #c0392b;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+section#contact p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #555;
+}
+

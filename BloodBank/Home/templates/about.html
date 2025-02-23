@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <header>
+      <h1>About Blood Donor Finder</h1>
+      <nav>
+        <a href="{% url 'main-page' %}">Home</a>
+            <a href="{% url 'register-p' %}">Become a Donor</a>
+            <a href="{% url 'search-page' %}">Find a Donor</a>
+            <a href="{% url 'contact-page' %}">Contact Us</a>
+            <a href="{% url 'about-page' %}">About Us</a>
+      </nav>
+    </header>
+    <section class="yo">
+      <h1>Our Mission</h1>
+      <h2>
+        At Blood Donor and Blood Bank Finder, we are on a mission to create a
+        compassionate and accessible platform that bridges the gap between those
+        in need of blood and willing donors. Our goal is to ensure that every
+        patient receives timely access to life-saving blood, while fostering a
+        community of generous individuals dedicated to saving lives. By
+        harnessing the power of technology, we aim to simplify the donation
+        process, raise awareness about the importance of blood donation, and
+        facilitate seamless connections between donors and recipients. Together,
+        we are committed to building a healthier future, one donation at a time,
+        all while promoting the values of altruism, community support, and the
+        importance of giving back. Join us in this life-saving mission and make
+        a difference today!
+      </h2>
+    </section>
+    <style>
+      body {
+        background-image: url("{% static 'images/ok4.jpg' %}");
+        background: cover;
+      }
+      .yo {
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(0, 0, 0, 0.3);
+        color: white;
+        padding: 20px;
+
+        width: 90%;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: justify;
+        line-height: 1.5;
+        font-size: 18px;
+      }
+
+      h1 {
+        font-family: "Times New Roman", Times, serif;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #ff5f6d;
+        text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+          1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+      }
+      h2 {
+        font-family: "Arial", sans-serif;
+        text-align: center;
+        margin-top: 20px;
+        color: #212121;
+        text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+          1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+      }
+    </style>
+  </body>
+</html>

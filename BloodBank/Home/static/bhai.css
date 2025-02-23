@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.campaign-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px auto;
+    max-width: 1200px;
+}
+
+.campaign-details, .campaign-info {
+    width: 48%;
+}
+
+.campaign-details img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.campaign-info h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.campaign-info p {
+    font-size: 1.1em;
+    color: #f06464;
+    margin-bottom: 30px;
+}
+
+.register-box {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.register-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-box input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.register-box button {
+    padding: 12px;
+    background-color: #e53d3e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+.register-box button:hover {
+    background-color: #d03435;
+}
+
+.details-info {
+    margin-top: 15px;
+}
+
+.details-info p {
+    margin: 0;
+    color: #000000;
+    font-size: 2.1em;
+}
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.ways-to-help {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.ways-to-help h2 {
+    font-size: 4em;
+    color: #222;
+}
+
+.help-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px auto;
+    max-width: 1200px;
+}
+
+.help-card {
+    width: 30%;
+    border: 1px solid #eee;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.help-card img {
+    width: 100%;
+    height: auto;
+}
+
+.help-card:hover {
+    transform: scale(1.05);
+}
+
+.help-card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.help-card-content h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.help-card-content p {
+    color: #666;
+    font-size: 1.1em;
+}
+
+.help-card-content a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #e53d3e;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.help-card-content a:hover {
+    background-color: #d03435;
+}

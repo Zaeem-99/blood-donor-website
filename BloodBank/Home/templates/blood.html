@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation</title>
+    <link rel="stylesheet" href="{% static 'blood.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Blood Donor & Blood Bank Finder</h1>
+        <!-- <nav>
+            <ul>
+                <li><a href="{% url 'main-page' %}">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#register">Register</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav> -->
+    </header>
+
+    <section id="home">
+        <h2>Welcome to Blood Donor & Blood Bank Finder</h2>
+        <p>Your blood can save lives. Register today to donate blood and help those in need.</p>
+        <a href="#register"> <button onclick="scrollToSection('register')">Register Now</button></a>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are a non-profit organization dedicated to saving lives through blood donation.</p>
+    </section>
+
+    <section id="register">
+        <h2>Register as a Donor</h2>
+        <form id="registrationForm" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="donor_name">Name:</label>
+            <input type="text" id="donor_name" name="donor_name" required>
+            
+            <label for="donor_email">Email:</label>
+            <input type="email" id="donor_email" name="donor_email" required>
+            <label for="donor_pass">Password</label>
+            <input type="password" id="donor_pass" name="donor_pass" required>
+            <label for="donor_phone">Phone:</label>
+            <input type="donor_phone" id="donor_phone" name="donor_phone" required>
+            
+            <label for="donor_city">City</label>
+            <input type="donor_city" id="donor_city" name="donor_city" required>
+            
+            <label for="donor_bloodtype">Blood Type:</label>
+            <select id="donor_bloodtype" name="donor_bloodtype" required>
+                <option value="">Select your blood type</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+            
+            <a href="{% url 'main-page' %}"><button type="submit">Submit</button></a>
+        </form>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: contact@blooddonor.com</p>
+        <p>Phone: 123-456-7890</p>
+    </section>
+<!-- 
+    <footer>
+        <p>2024 Blood Donor & Blood Bank Finder . All rights reserved.</p>
+    </footer> -->
+
+    <script src="app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Donor</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Hide table initially */
+        #donor-table {
+            display: none;
+        }
+        /* Hide search again button initially */
+        #search-again {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Find a Blood Donor</h1>
+        <nav>
+            <a href="{% url 'main-page' %}">Home</a>
+            <a href="{% url 'register-p' %}">Become a Donor</a>
+            <a href="{% url 'search-page' %}">Find a Donor</a>
+            <a href="{% url 'contact-page' %}">Contact Us</a>
+            <a href="{% url 'about-page' %}">About Us</a>
+        </nav>
+    </header>
+
+    {% if messages %}
+    <div class="alert alert-info">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Search Form -->
+    <form method="GET" action="{% url 'search-page' %}" id="search-form"> 
+        <div class="mb-3">
+            <label for="donor_bloodtype" class="form-label">Enter Blood Type</label>
+            <select name="donor_bloodtype" class="form-control" id="donor_bloodtype">
+              <option value="">Select Blood Type</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+          </select>
+        </div>
+        <div class="mb-3">
+            <label for="donor_city" class="form-label">Enter City</label>
+            <input name="donor_city" type="text" class="form-control" id="donor_city">
+        </div>
+        
+        <button type="submit" class="btn btn-danger" id="search-button">Search</button>
+    </form>
+
+    <!-- Donor Table -->
+    <div id="donor-table" {% if donors %} style="display: block;" {% else %} style="display: none;" {% endif %}>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Donor Name</th>
+                    <th scope="col">Donor BloodType</th>
+                    <th scope="col">Donor Phone</th>
+                    <th scope="col">Donor Email</th>
+                    <th scope="col">Donor City</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for donor in donors %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ donor.donor_name }}</td>
+                    <td>{{ donor.donor_bloodtype }}</td>
+                    <td>{{ donor.donor_phone }}</td>
+                    <td>{{ donor.donor_email }}</td>
+                    <td>{{ donor.donor_city }}</td>
+                    <td>
+                        <a href="{% url 'send-email' email=donor.donor_email %}" class="btn btn-primary">Send email for Blood request</a>
+                    </td>
+                </tr>
+                  {% empty %}
+                  <tr id="no-donors-row">
+                    <td colspan="7" class="text-center">No donors found.</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              
+              
+            </div>
+            
+            <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var donorTable = document.getElementById("donor-table");
+            var searchAgainButton = document.getElementById("search-again");
+            var noDonorsRow = document.getElementById("no-donors-row");
+            
+            {% if donors %}
+            donorTable.style.display = "block";
+            searchAgainButton.style.display = "block"; // Show "Search Again" button when results exist
+            {% else %}
+            alert("No donors found. Please try different search criteria.");
+            searchAgainButton.style.display = "block"; // Still show "Search Again" button
+            {% endif %}
+          });
+          </script>
+
+</body>
+</html>
+
+<!-- <td><a href="mailto:{{ i.donor_email }}">Send Email</a></td> -->

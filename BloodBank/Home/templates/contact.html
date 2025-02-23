@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        <nav>
+            <a href="{% url 'main-page' %}">Home</a>
+            <a href="{% url 'register-p' %}">Become a Donor</a>
+            <a href="{% url 'search-page' %}">Find a Donor</a>
+            <a href="{% url 'about-page' %}">About Us</a>
+            <a href="{% url 'contact-page' %}">Contact Us</a>
+        </nav>
+    </header>
+    <section>
+        <form id="Form" method="POST">
+            {% csrf_token %}
+            <!-- <label for="email">Enter Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message for us:</label>
+            <textarea id="message" name="message" required></textarea> -->
+            {{ form.as_p}}
+                
+            <button type="submit">Send Email</button>
+        </form>
+    </section>
+    <script src="app.js"></script>
+</body>
+</html>
